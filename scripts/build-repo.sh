@@ -29,7 +29,7 @@ for repo in "${REPOS[@]}"; do
 done
 
 cd "$WORK"
-dpkg-scanpackages pool /dev/null > Packages
+dpkg-scanpackages --multiversion pool /dev/null > Packages
 
 for name in "${!URLMAP[@]}"; do
   sed -i "s#Filename: pool/${name}#Filename: ${URLMAP[$name]}#" Packages
