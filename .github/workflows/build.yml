@@ -1,8 +1,15 @@
 name: Build apt repo
 
 on:
+  # Source repos POST a release-published repository_dispatch at the end of their release
+  # workflow, so a tag reaches apt in about a minute. repository_dispatch only ever runs the
+  # copy of this workflow that is on the default branch, which is where this file lives.
+  repository_dispatch:
+    types: [release-published]
+  # The self-heal path for a dispatch that never arrived (a missing or expired token in the
+  # source repo, a failed POST). Hourly is plenty now that it is not the primary trigger.
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 * * * *'
   workflow_dispatch: {}
   push:
     branches: [main]

@@ -10,7 +10,11 @@ KEYID="$1"
 OUTDIR="$(pwd)/public"
 PUBKEY="$(pwd)/pubkey.asc"
 
-REPOS=(packet-net/pdn-soundmodem packet-net/axcall packet-net/packet.net)
+# The source repos are data, not code: sources.txt at the repo root, one owner/repo per
+# line. Adding a project to this apt repo is a line there.
+SOURCES="$(pwd)/sources.txt"
+mapfile -t REPOS < <(sed -e 's/#.*//' -e '/^[[:space:]]*$/d' -e 's/[[:space:]]//g' "$SOURCES")
+[ "${#REPOS[@]}" -gt 0 ] || { echo "sources.txt lists no repos" >&2; exit 2; }
 
 WORK="$(mktemp -d)"
 POOL="$WORK/pool"
@@ -18,11 +22,16 @@ mkdir -p "$POOL" "$OUTDIR"
 
 for repo in "${REPOS[@]}"; do
   echo "Fetching latest release for $repo"
+  # The run's own GITHUB_TOKEN is enough to read a *public* repo's releases in any other
+  # account or org. If a source repo is ever made private this stops working and it needs
+  # a PAT with read access to that repo instead.
   assets="$(gh api "repos/$repo/releases/latest" --jq '.assets[] | select(.name | endswith(".deb")) | "\(.name)\t\(.browser_download_url)"')"
   while IFS=$'\t' read -r name url; do
     [ -z "$name" ] && continue
     echo "  $name"
-    curl -sL -o "$POOL/$name" "$url"
+    # -f, not bare -sL: without it a 404 or an error page is written to the pool and
+    # indexed as a corrupt .deb. Fail the run instead, and let set -e stop here.
+    curl -fsSL --retry 3 --retry-all-errors -o "$POOL/$name" "$url"
   done <<< "$assets"
 done
 
@@ -38,7 +47,7 @@ gzip -9 -c Packages > Packages.gz
   echo "Codename: flat"
   echo "Date: $(date -Ru)"
   echo "Architectures: amd64 arm64 armhf"
-  echo "Description: Public apt repository for packet-net packages (pdn-soundmodem, axcall, axinetd, axsocks, axtun, packetnet)"
+  echo "Description: Public apt repository for packet-net packages (pdn-soundmodem, axcall, axinetd, axsocks, axtun, packetnet, tait-codeplug)"
   echo "MD5Sum:"
   for f in Packages Packages.gz; do
     printf ' %s %16d %s\n' "$(md5sum "$f" | cut -d' ' -f1)" "$(stat -c%s "$f")" "$f"
@@ -71,7 +80,7 @@ packet-net apt repository
   curl -fsSL https://packet-net.github.io/apt/pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/packet-net.gpg
   echo "deb [signed-by=/usr/share/keyrings/packet-net.gpg] https://packet-net.github.io/apt ./" | sudo tee /etc/apt/sources.list.d/packet-net.list
   sudo apt update
-  sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet
+  sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet tait-codeplug
 
 See https://github.com/packet-net/apt for details.
 </pre>
