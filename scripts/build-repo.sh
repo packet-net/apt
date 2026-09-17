@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Rebuilds the flat apt repository index from the latest release of each
-# source repo. The .deb files themselves are never copied into this repo;
-# Packages' Filename fields point straight at the GitHub Release asset URLs,
-# so this repo (and the gh-pages branch) stays tiny text-only.
+# Rebuilds the apt repository (index + pool/ of .deb files) from the latest
+# release of each source repo. apt joins Filename: to the repo base URI even
+# when it's already an absolute URL (producing a broken double-URL), so the
+# .deb files have to actually live under this repo's pool/, not just be
+# linked to from the index.
 set -euo pipefail
 
 KEYID="$1"
@@ -15,8 +16,6 @@ WORK="$(mktemp -d)"
 POOL="$WORK/pool"
 mkdir -p "$POOL" "$OUTDIR"
 
-declare -A URLMAP
-
 for repo in "${REPOS[@]}"; do
   echo "Fetching latest release for $repo"
   assets="$(gh api "repos/$repo/releases/latest" --jq '.assets[] | select(.name | endswith(".deb")) | "\(.name)\t\(.browser_download_url)"')"
@@ -24,16 +23,11 @@ for repo in "${REPOS[@]}"; do
     [ -z "$name" ] && continue
     echo "  $name"
     curl -sL -o "$POOL/$name" "$url"
-    URLMAP["$name"]="$url"
   done <<< "$assets"
 done
 
 cd "$WORK"
 dpkg-scanpackages --multiversion pool /dev/null > Packages
-
-for name in "${!URLMAP[@]}"; do
-  sed -i "s#Filename: pool/${name}#Filename: ${URLMAP[$name]}#" Packages
-done
 
 gzip -9 -c Packages > Packages.gz
 
@@ -64,6 +58,8 @@ gpg --batch --yes --default-key "$KEYID" --clearsign -o InRelease Release
 
 cp Packages Packages.gz Release Release.gpg InRelease "$OUTDIR/"
 cp "$PUBKEY" "$OUTDIR/pubkey.asc"
+rm -rf "$OUTDIR/pool"
+cp -r pool "$OUTDIR/pool"
 
 cat > "$OUTDIR/index.html" <<'EOF'
 <!doctype html>

@@ -23,14 +23,19 @@ sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet
 
 ## How it works
 
-This repo holds no `.deb` files itself. A [scheduled GitHub Actions
-workflow](.github/workflows/build.yml) reads the latest release of each
-source repo, downloads its `.deb` assets, runs `dpkg-scanpackages` to build a
-`Packages` index, rewrites each entry's `Filename` to point straight at the
-original GitHub Release asset URL, signs the result with the repo's GPG key,
-and pushes the (small, text-only) index to the `gh-pages` branch that GitHub
-Pages serves. The actual package downloads are served by GitHub Releases,
-not by Pages.
+A [scheduled GitHub Actions workflow](.github/workflows/build.yml) reads the
+latest release of each source repo, downloads its `.deb` assets into
+`pool/`, runs `dpkg-scanpackages` to build a `Packages` index, signs the
+result with the repo's GPG key, and pushes it all to the `gh-pages` branch
+that GitHub Pages serves.
+
+The `.deb` files are mirrored into this repo's `pool/` rather than just
+linked from the GitHub Release: apt joins a package's `Filename:` to the
+repository's base URL even when `Filename:` is already an absolute URL, so
+pointing it straight at a release asset produces a broken double-URL and
+apt fails at the download step. Keeping `Filename:` as the plain
+`dpkg-scanpackages` output (`pool/<name>.deb`, relative to the repo) and
+serving the actual files from `pool/` is the only layout that works.
 
 It runs every 15 minutes and can also be triggered manually from the
 Actions tab.
