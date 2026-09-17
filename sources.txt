@@ -1,0 +1,20 @@
+# Source repositories whose latest GitHub Release is mirrored into this apt repo.
+#
+# One owner/repo per line. Blank lines and #-comments are ignored. Every .deb asset
+# attached to that repo's `releases/latest` is downloaded into pool/ and indexed.
+#
+# Adding a project here is half its adoption cost. The other half is one step at the end
+# of that project's release workflow, POSTing a `release-published` repository_dispatch
+# at this repo so the index rebuilds within a minute instead of within the hour. See
+# README.md, "How it works".
+#
+# Only public repos work: the build runs on this repo's GITHUB_TOKEN, which can read a
+# public repo's releases anywhere on GitHub but cannot see a private one.
+#
+# A release marked prerelease or draft is invisible to `releases/latest`, so it never
+# reaches apt. That is deliberate.
+
+packet-net/pdn-soundmodem
+packet-net/axcall
+packet-net/packet.net
+m0lte/tait-codeplug
