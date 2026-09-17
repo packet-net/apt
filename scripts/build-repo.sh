@@ -54,7 +54,11 @@ gzip -9 -c Packages > Packages.gz
   echo "Suite: stable"
   echo "Codename: flat"
   echo "Date: $(date -Ru)"
-  echo "Architectures: amd64 arm64 armhf"
+  # `all` because nprflash is Architecture: all - one package for every machine, which is what a
+  # pure-Python tool should ship. apt installs it on any host whether or not it is named here (a
+  # flat repo has a single Packages index, not a per-architecture split, so there is nothing to
+  # miss it out of), but the field is meant to describe what the repo actually carries.
+  echo "Architectures: all amd64 arm64 armhf"
   echo "Description: Public apt repository for packet-net packages (pdn-soundmodem, axcall, axinetd, axsocks, axtun, packetnet, tait-codeplug, tait-cli, nprflash)"
   echo "MD5Sum:"
   for f in Packages Packages.gz; do
