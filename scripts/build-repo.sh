@@ -25,7 +25,15 @@ for repo in "${REPOS[@]}"; do
   # The run's own GITHUB_TOKEN is enough to read a *public* repo's releases in any other
   # account or org. If a source repo is ever made private this stops working and it needs
   # a PAT with read access to that repo instead.
-  assets="$(gh api "repos/$repo/releases/latest" --jq '.assets[] | select(.name | endswith(".deb")) | "\(.name)\t\(.browser_download_url)"')"
+  # A repo that has never cut a release 404s here. That is an expected state, not a fault: the
+  # documented way to adopt this repo is to add the line first and release afterwards, and a
+  # project that has not got there yet must not turn the index red for every other project. It
+  # simply contributes nothing until it has a release. Anything else (a typo in sources.txt, a
+  # repo gone private, a rate limit) also lands here, so say so loudly rather than silently.
+  if ! assets="$(gh api "repos/$repo/releases/latest" --jq '.assets[] | select(.name | endswith(".deb")) | "\(.name)\t\(.browser_download_url)"' 2>/dev/null)"; then
+    echo "  no published release readable for $repo; skipping it this run" >&2
+    continue
+  fi
   while IFS=$'\t' read -r name url; do
     [ -z "$name" ] && continue
     echo "  $name"
@@ -47,7 +55,7 @@ gzip -9 -c Packages > Packages.gz
   echo "Codename: flat"
   echo "Date: $(date -Ru)"
   echo "Architectures: amd64 arm64 armhf"
-  echo "Description: Public apt repository for packet-net packages (pdn-soundmodem, axcall, axinetd, axsocks, axtun, packetnet, tait-codeplug)"
+  echo "Description: Public apt repository for packet-net packages (pdn-soundmodem, axcall, axinetd, axsocks, axtun, packetnet, tait-codeplug, tait-cli, nprflash)"
   echo "MD5Sum:"
   for f in Packages Packages.gz; do
     printf ' %s %16d %s\n' "$(md5sum "$f" | cut -d' ' -f1)" "$(stat -c%s "$f")" "$f"
@@ -80,7 +88,7 @@ packet-net apt repository
   curl -fsSL https://packet-net.github.io/apt/pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/packet-net.gpg
   echo "deb [signed-by=/usr/share/keyrings/packet-net.gpg] https://packet-net.github.io/apt ./" | sudo tee /etc/apt/sources.list.d/packet-net.list
   sudo apt update
-  sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet tait-codeplug
+  sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet tait-codeplug tait-cli nprflash
 
 See https://github.com/packet-net/apt for details.
 </pre>

@@ -10,6 +10,8 @@ Currently tracks the latest release of:
 - [axcall](https://github.com/packet-net/axcall) - `axcall`, `axinetd`, `axsocks`, `axtun`
 - [packet.net](https://github.com/packet-net/packet.net) - `packetnet`
 - [tait-codeplug](https://github.com/M0LTE/tait-codeplug) - `tait-codeplug`
+- [tait-cli](https://github.com/M0LTE/tait-cli) - `tait-cli`
+- [nprflash](https://github.com/M0LTE/nprflash) - `nprflash` (`Architecture: all`)
 
 for `amd64`, `arm64` and `armhf`.
 
@@ -21,7 +23,7 @@ The list lives in [`sources.txt`](sources.txt), one `owner/repo` per line.
 curl -fsSL https://packet-net.github.io/apt/pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/packet-net.gpg
 echo "deb [signed-by=/usr/share/keyrings/packet-net.gpg] https://packet-net.github.io/apt ./" | sudo tee /etc/apt/sources.list.d/packet-net.list
 sudo apt update
-sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet tait-codeplug
+sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet tait-codeplug tait-cli nprflash
 ```
 
 ## How it works

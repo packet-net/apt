@@ -18,3 +18,5 @@ packet-net/pdn-soundmodem
 packet-net/axcall
 packet-net/packet.net
 m0lte/tait-codeplug
+m0lte/tait-cli
+m0lte/nprflash
