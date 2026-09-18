@@ -61,9 +61,10 @@ A source repo needs one secret to do that: a fine-grained PAT with **Contents:
 Read and write** on *this* repo and nothing else, exposed to its release
 workflow as `APT_DISPATCH_TOKEN`. A `packet-net/*` repo can use an org secret;
 a repo in a personal account needs its own copy. The dispatch step runs last,
-after the GitHub Release itself has already shipped, and only warns (never
-fails the workflow) whether the secret is missing or the dispatch call itself
-errors, so a release can never fail over this.
+after the GitHub Release itself has already shipped, and **fails the workflow**
+if the secret is missing or the dispatch call itself errors (Tom's call,
+2026-09-18): a release whose apt publish is broken should show red, not ship
+quietly with apt out of date until someone notices.
 
 The daily cron is the self-heal path for a dispatch that never arrived, and
 the build can also be triggered manually from the Actions tab.
