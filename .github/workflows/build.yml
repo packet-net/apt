@@ -7,9 +7,9 @@ on:
   repository_dispatch:
     types: [release-published]
   # The self-heal path for a dispatch that never arrived (a missing or expired token in the
-  # source repo, a failed POST). Hourly is plenty now that it is not the primary trigger.
+  # source repo, a failed POST). Daily is plenty now that it is not the primary trigger.
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 3 * * *'
   workflow_dispatch: {}
   push:
     branches: [main]
