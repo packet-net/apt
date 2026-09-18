@@ -60,11 +60,12 @@ project, so it has to be rebuilt centrally whatever happens.
 A source repo needs one secret to do that: a fine-grained PAT with **Contents:
 Read and write** on *this* repo and nothing else, exposed to its release
 workflow as `APT_DISPATCH_TOKEN`. A `packet-net/*` repo can use an org secret;
-a repo in a personal account needs its own copy. The dispatch step is expected
-to warn rather than fail when the secret is missing, so a release never fails
-over it.
+a repo in a personal account needs its own copy. The dispatch step runs last,
+after the GitHub Release itself has already shipped, and only warns (never
+fails the workflow) whether the secret is missing or the dispatch call itself
+errors, so a release can never fail over this.
 
-The hourly cron is the self-heal path for a dispatch that never arrived, and
+The daily cron is the self-heal path for a dispatch that never arrived, and
 the build can also be triggered manually from the Actions tab.
 
 ## Adding a project
