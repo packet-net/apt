@@ -9,6 +9,12 @@ Currently tracks the latest release of:
 - [pdn-soundmodem](https://github.com/packet-net/pdn-soundmodem) - `pdn-soundmodem`
 - [axcall](https://github.com/packet-net/axcall) - `axcall`, `axinetd`, `axsocks`, `axtun`
 - [packet.net](https://github.com/packet-net/packet.net) - `packetnet`
+- [pdn-bbs](https://github.com/packet-net/pdn-bbs) - `pdn-bbs`
+- [pdn-bpqchat](https://github.com/packet-net/pdn-bpqchat) - `pdn-bpqchat`
+- [pdn-convers](https://github.com/packet-net/pdn-convers) - `pdn-convers`
+- [pdn-libax25](https://github.com/packet-net/pdn-libax25) - `pdn-libax25`
+- [pdn-net](https://github.com/packet-net/pdn-net) - `pdn-net`
+- [pdn-qso](https://github.com/packet-net/pdn-qso) - `pdn-qso`
 - [tait-codeplug](https://github.com/M0LTE/tait-codeplug) - `tait-codeplug`
 - [tait-cli](https://github.com/M0LTE/tait-cli) - `tait-cli`
 - [nprflash](https://github.com/M0LTE/nprflash) - `nprflash` (`Architecture: all`)
@@ -23,7 +29,7 @@ The list lives in [`sources.txt`](sources.txt), one `owner/repo` per line.
 curl -fsSL https://packet-net.github.io/apt/pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/packet-net.gpg
 echo "deb [signed-by=/usr/share/keyrings/packet-net.gpg] https://packet-net.github.io/apt ./" | sudo tee /etc/apt/sources.list.d/packet-net.list
 sudo apt update
-sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet tait-codeplug tait-cli nprflash
+sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet pdn-bbs pdn-bpqchat pdn-convers pdn-libax25 pdn-net pdn-qso tait-codeplug tait-cli nprflash
 ```
 
 ## How it works

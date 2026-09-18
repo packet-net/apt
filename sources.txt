@@ -17,6 +17,12 @@
 packet-net/pdn-soundmodem
 packet-net/axcall
 packet-net/packet.net
+packet-net/pdn-bbs
+packet-net/pdn-bpqchat
+packet-net/pdn-convers
+packet-net/pdn-libax25
+packet-net/pdn-net
+packet-net/pdn-qso
 m0lte/tait-codeplug
 m0lte/tait-cli
 m0lte/nprflash
