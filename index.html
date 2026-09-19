@@ -1,0 +1,13 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>packet-net apt repository</title>
+<pre>
+packet-net apt repository
+
+  curl -fsSL https://packet-net.github.io/apt/pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/packet-net.gpg
+  echo "deb [signed-by=/usr/share/keyrings/packet-net.gpg] https://packet-net.github.io/apt ./" | sudo tee /etc/apt/sources.list.d/packet-net.list
+  sudo apt update
+  sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet tait-codeplug tait-cli nprflash
+
+See https://github.com/packet-net/apt for details.
+</pre>
