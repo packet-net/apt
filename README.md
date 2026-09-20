@@ -9,6 +9,12 @@ Currently tracks the latest release of:
 - [pdn-soundmodem](https://github.com/packet-net/pdn-soundmodem) - `pdn-soundmodem`
 - [axcall](https://github.com/packet-net/axcall) - `axcall`, `axinetd`, `axsocks`, `axtun`
 - [packet.net](https://github.com/packet-net/packet.net) - `packetnet`
+- [pdn-bbs](https://github.com/packet-net/pdn-bbs) - `pdn-bbs`
+- [pdn-bpqchat](https://github.com/packet-net/pdn-bpqchat) - `pdn-bpqchat`
+- [pdn-convers](https://github.com/packet-net/pdn-convers) - `pdn-convers`
+- [pdn-libax25](https://github.com/packet-net/pdn-libax25) - `pdn-libax25`
+- [pdn-net](https://github.com/packet-net/pdn-net) - `pdn-net`
+- [pdn-qso](https://github.com/packet-net/pdn-qso) - `pdn-qso`
 - [tait-codeplug](https://github.com/M0LTE/tait-codeplug) - `tait-codeplug`
 - [tait-cli](https://github.com/M0LTE/tait-cli) - `tait-cli`
 - [nprflash](https://github.com/M0LTE/nprflash) - `nprflash` (`Architecture: all`)
@@ -23,7 +29,7 @@ The list lives in [`sources.txt`](sources.txt), one `owner/repo` per line.
 curl -fsSL https://packet-net.github.io/apt/pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/packet-net.gpg
 echo "deb [signed-by=/usr/share/keyrings/packet-net.gpg] https://packet-net.github.io/apt ./" | sudo tee /etc/apt/sources.list.d/packet-net.list
 sudo apt update
-sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet tait-codeplug tait-cli nprflash
+sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet pdn-bbs pdn-bpqchat pdn-convers pdn-libax25 pdn-net pdn-qso tait-codeplug tait-cli nprflash
 ```
 
 ## How it works
@@ -54,11 +60,13 @@ project, so it has to be rebuilt centrally whatever happens.
 A source repo needs one secret to do that: a fine-grained PAT with **Contents:
 Read and write** on *this* repo and nothing else, exposed to its release
 workflow as `APT_DISPATCH_TOKEN`. A `packet-net/*` repo can use an org secret;
-a repo in a personal account needs its own copy. The dispatch step is expected
-to warn rather than fail when the secret is missing, so a release never fails
-over it.
+a repo in a personal account needs its own copy. The dispatch step runs last,
+after the GitHub Release itself has already shipped, and **fails the workflow**
+if the secret is missing or the dispatch call itself errors (Tom's call,
+2026-09-18): a release whose apt publish is broken should show red, not ship
+quietly with apt out of date until someone notices.
 
-The hourly cron is the self-heal path for a dispatch that never arrived, and
+The daily cron is the self-heal path for a dispatch that never arrived, and
 the build can also be triggered manually from the Actions tab.
 
 ## Adding a project
