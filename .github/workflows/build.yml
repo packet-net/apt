@@ -14,6 +14,22 @@ on:
   push:
     branches: [main]
 
+# Every run rebuilds the whole index and force-pushes gh-pages, so two of them at once is a
+# race: the loser dies on `cannot lock ref 'refs/heads/gh-pages': is at X but expected Y`
+# after having done all the work. That is not hypothetical - it happened on 2026-09-21 when
+# a push to main and a source repo's release dispatch landed seconds apart, and again the
+# same evening with three runs in flight. It gets likelier as more projects adopt the repo,
+# because every one of them dispatches here the moment it tags.
+#
+# cancel-in-progress: false, not true. Cancelling the in-flight run in favour of a newer one
+# looks right - a later run indexes a superset of what the earlier one would have - but a run
+# cancelled DURING its push can leave gh-pages half-updated, with a Packages index that does
+# not match the pool beside it. Queue them instead: a build is a couple of minutes, and the
+# newer one simply runs next and re-indexes everything anyway.
+concurrency:
+  group: build-apt-repo
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
