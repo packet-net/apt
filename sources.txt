@@ -16,6 +16,7 @@
 
 packet-net/pdn-soundmodem
 packet-net/axcall
+packet-net/dapps
 packet-net/packet.net
 packet-net/pdn-bbs
 packet-net/pdn-bpqchat

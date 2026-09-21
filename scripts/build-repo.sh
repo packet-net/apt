@@ -59,7 +59,7 @@ gzip -9 -c Packages > Packages.gz
   # flat repo has a single Packages index, not a per-architecture split, so there is nothing to
   # miss it out of), but the field is meant to describe what the repo actually carries.
   echo "Architectures: all amd64 arm64 armhf"
-  echo "Description: Public apt repository for packet-net packages (pdn-soundmodem, axcall, axinetd, axsocks, axtun, packetnet, pdn-bbs, pdn-bpqchat, pdn-convers, pdn-libax25, pdn-net, pdn-qso, tait-codeplug, tait-cli, nprflash)"
+  echo "Description: Public apt repository for packet-net packages (dapps, pdn-soundmodem, axcall, axinetd, axsocks, axtun, packetnet, pdn-bbs, pdn-bpqchat, pdn-convers, pdn-libax25, pdn-net, pdn-qso, tait-codeplug, tait-cli, nprflash)"
   echo "MD5Sum:"
   for f in Packages Packages.gz; do
     printf ' %s %16d %s\n' "$(md5sum "$f" | cut -d' ' -f1)" "$(stat -c%s "$f")" "$f"
@@ -92,7 +92,7 @@ packet-net apt repository
   curl -fsSL https://packet-net.github.io/apt/pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/packet-net.gpg
   echo "deb [signed-by=/usr/share/keyrings/packet-net.gpg] https://packet-net.github.io/apt ./" | sudo tee /etc/apt/sources.list.d/packet-net.list
   sudo apt update
-  sudo apt install pdn-soundmodem axcall axinetd axsocks axtun packetnet pdn-bbs pdn-bpqchat pdn-convers pdn-libax25 pdn-net pdn-qso tait-codeplug tait-cli nprflash
+  sudo apt install dapps pdn-soundmodem axcall axinetd axsocks axtun packetnet pdn-bbs pdn-bpqchat pdn-convers pdn-libax25 pdn-net pdn-qso tait-codeplug tait-cli nprflash
 
 See https://github.com/packet-net/apt for details.
 </pre>
