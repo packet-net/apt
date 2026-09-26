@@ -1,0 +1,1274 @@
+Package: axcall
+Version: 0.11.2
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 16434
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 12)
+Suggests: axsocks
+Conflicts: ax25-apps
+Replaces: ax25-apps
+Filename: pool/axcall_0.11.2_armhf.deb
+Size: 6174900
+MD5sum: 904dd21c9a06861d9ff3835e6cf46ea5
+SHA1: 9828e7b73133837380b0b68a0e9f288e82b1d6de
+SHA256: 095ab2400abb5d4366e0526621101ba9d07d124dcae2875a0c71051aee317a67
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: connected-mode AX.25 terminal over KISS
+ Dials a remote AX.25 station, pipes your keyboard to it and its replies to
+ your screen, and disconnects cleanly. Line mode, 8 bit clean, transparent
+ CR/LF translation.
+ .
+ Unlike the axcall from ax25-apps, this one does not use the Linux kernel
+ AX.25 stack, which has been withdrawn. It carries its own AX.25 v2.2 data
+ link and speaks KISS to a TNC over a serial port or over TCP, so it needs no
+ kernel support, no kissattach, no axparms and no privilege. The command line
+ is deliberately the old one, so existing scripts mostly carry over.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required. Replaces ax25-apps, which owns the same /usr/bin/axcall; the rest
+ of that package (axlisten, ax25ipd, ax25rtd, ax25mond) depends on the
+ withdrawn kernel stack and no longer functions.
+
+Package: axcall
+Version: 0.11.2
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 3875
+Depends: libc6 (>= 2.34)
+Suggests: axsocks
+Conflicts: ax25-apps
+Replaces: ax25-apps
+Filename: pool/axcall_0.11.2_amd64.deb
+Size: 1493620
+MD5sum: 7d549ef54ab4f111087ec7024dd1769b
+SHA1: e4e5df9fa0594af5e0bc68236b4038311003c784
+SHA256: 34fd86376259724782b8c891a71499d3eb1c3a75ec25cb278858c7a37b1dc710
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: connected-mode AX.25 terminal over KISS
+ Dials a remote AX.25 station, pipes your keyboard to it and its replies to
+ your screen, and disconnects cleanly. Line mode, 8 bit clean, transparent
+ CR/LF translation.
+ .
+ Unlike the axcall from ax25-apps, this one does not use the Linux kernel
+ AX.25 stack, which has been withdrawn. It carries its own AX.25 v2.2 data
+ link and speaks KISS to a TNC over a serial port or over TCP, so it needs no
+ kernel support, no kissattach, no axparms and no privilege. The command line
+ is deliberately the old one, so existing scripts mostly carry over.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required. Replaces ax25-apps, which owns the same /usr/bin/axcall; the rest
+ of that package (axlisten, ax25ipd, ax25rtd, ax25mond) depends on the
+ withdrawn kernel stack and no longer functions.
+
+Package: axcall
+Version: 0.11.2
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 4031
+Depends: libc6 (>= 2.34)
+Suggests: axsocks
+Conflicts: ax25-apps
+Replaces: ax25-apps
+Filename: pool/axcall_0.11.2_arm64.deb
+Size: 1335968
+MD5sum: 2335ff9382b696de5d60d500de550967
+SHA1: 35573d017cbab885e7b20a9e876844bd5d1cb73d
+SHA256: d8bbeeb9a4fd62b08e38a525822eeeecf76eaae93c6c7a65ef018b2cf83dec92
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: connected-mode AX.25 terminal over KISS
+ Dials a remote AX.25 station, pipes your keyboard to it and its replies to
+ your screen, and disconnects cleanly. Line mode, 8 bit clean, transparent
+ CR/LF translation.
+ .
+ Unlike the axcall from ax25-apps, this one does not use the Linux kernel
+ AX.25 stack, which has been withdrawn. It carries its own AX.25 v2.2 data
+ link and speaks KISS to a TNC over a serial port or over TCP, so it needs no
+ kernel support, no kissattach, no axparms and no privilege. The command line
+ is deliberately the old one, so existing scripts mostly carry over.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required. Replaces ax25-apps, which owns the same /usr/bin/axcall; the rest
+ of that package (axlisten, ax25ipd, ax25rtd, ax25mond) depends on the
+ withdrawn kernel stack and no longer functions.
+
+Package: axinetd
+Version: 0.11.2
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 4209
+Depends: libc6 (>= 2.34)
+Filename: pool/axinetd_0.11.2_amd64.deb
+Size: 1620148
+MD5sum: e19fd4c290bff460b65f68542887f75a
+SHA1: 13ce77da5dea57bf2677cfc87adf443d778b5ff6
+SHA256: ccfc50c960ee795147dc83e753b155ab6f0e83ece2468a56a7a43ede6e28a18f
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: run a program for inbound AX.25 calls
+ Answers inbound AX.25 calls. Each call either runs a program with the session
+ on its standard input and output, or is forwarded to a local TCP service, so
+ writing a packet service becomes writing a program that reads stdin. This is
+ what ax25d did, without the kernel stack it depended on.
+ .
+ The callsign called is the whole address and so the whole routing decision;
+ there are no port numbers on the AX.25 side. The calling station is passed to
+ the program as %r in its arguments and as AX25_CALLER in its environment.
+ .
+ Carries its own AX.25 v2.2 data link and speaks KISS to a TNC over a serial
+ port or over TCP, so it needs no kernel support, no kissattach and no
+ privilege. It declines to run as root, because it runs programs on behalf of
+ whoever calls in and cannot drop privileges first.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required.
+
+Package: axinetd
+Version: 0.11.2
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 4352
+Depends: libc6 (>= 2.34)
+Filename: pool/axinetd_0.11.2_arm64.deb
+Size: 1440036
+MD5sum: 8306059d194afd166f06a67ad2576d72
+SHA1: be745ca437f908f0ca4b687eaa5e019f471c091c
+SHA256: f3e9370dbfa085ad3007f8acefb8ecb3e2dc11292ae6aa209cc3dedf10332cbf
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: run a program for inbound AX.25 calls
+ Answers inbound AX.25 calls. Each call either runs a program with the session
+ on its standard input and output, or is forwarded to a local TCP service, so
+ writing a packet service becomes writing a program that reads stdin. This is
+ what ax25d did, without the kernel stack it depended on.
+ .
+ The callsign called is the whole address and so the whole routing decision;
+ there are no port numbers on the AX.25 side. The calling station is passed to
+ the program as %r in its arguments and as AX25_CALLER in its environment.
+ .
+ Carries its own AX.25 v2.2 data link and speaks KISS to a TNC over a serial
+ port or over TCP, so it needs no kernel support, no kissattach and no
+ privilege. It declines to run as root, because it runs programs on behalf of
+ whoever calls in and cannot drop privileges first.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required.
+
+Package: axinetd
+Version: 0.11.2
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 17021
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 12)
+Filename: pool/axinetd_0.11.2_armhf.deb
+Size: 6380676
+MD5sum: 69147fdf1487364a011bc67d94eae5cc
+SHA1: a121c7f5c623be3410e160df7bc08bf4782e18aa
+SHA256: fa43b9d729fd70d0d4f7f53130b123db2fbed5f06c677f15628b9d2e455f7e95
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: run a program for inbound AX.25 calls
+ Answers inbound AX.25 calls. Each call either runs a program with the session
+ on its standard input and output, or is forwarded to a local TCP service, so
+ writing a packet service becomes writing a program that reads stdin. This is
+ what ax25d did, without the kernel stack it depended on.
+ .
+ The callsign called is the whole address and so the whole routing decision;
+ there are no port numbers on the AX.25 side. The calling station is passed to
+ the program as %r in its arguments and as AX25_CALLER in its environment.
+ .
+ Carries its own AX.25 v2.2 data link and speaks KISS to a TNC over a serial
+ port or over TCP, so it needs no kernel support, no kissattach and no
+ privilege. It declines to run as root, because it runs programs on behalf of
+ whoever calls in and cannot drop privileges first.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required.
+
+Package: axsocks
+Version: 0.11.2
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 3901
+Depends: libc6 (>= 2.34)
+Filename: pool/axsocks_0.11.2_amd64.deb
+Size: 1503876
+MD5sum: b8a90b1e0ba1b33570f02d47c3dc327b
+SHA1: 4836d7636026e65edfa966b0072de5c1b730d967
+SHA256: e2f78c0ed6a797e4e61b907f7660656fce30cbca874c18d29a5adba89c04e70d
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: SOCKS5 proxy onto an AX.25 port
+ Puts a SOCKS5 proxy in front of one AX.25 port. Every connection it accepts
+ becomes a connected-mode AX.25 session to a callsign, and the bytes pass
+ through untouched, so curl, ssh, browsers and any HTTP library reach a packet
+ station over an ordinary socket without knowing what AX.25 is.
+ .
+ The mapping is exact rather than approximate: a connected-mode AX.25 session
+ is reliable, ordered and flow-controlled, and so is a TCP connection, so the
+ proxy opens a link, copies bytes, and closes the link when they run out.
+ Streams only; there is no UDP and no ping.
+ .
+ Carries its own AX.25 v2.2 data link and speaks KISS to a TNC over a serial
+ port or over TCP, so it needs no kernel support, no kissattach and no
+ privilege. Reads the same /etc/axcall/ports as axcall, plus an
+ /etc/axcall/hosts giving names to stations.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required.
+
+Package: axsocks
+Version: 0.11.2
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 4093
+Depends: libc6 (>= 2.34)
+Filename: pool/axsocks_0.11.2_arm64.deb
+Size: 1343672
+MD5sum: 828d474213ac7e1a366f0145bf6c4c6f
+SHA1: a1043b2c49341343d8f993d058922bd296573c86
+SHA256: 12f7d0d8e81823c811be864a023855657c95a55e1429b9126b412fb73b9fb6c6
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: SOCKS5 proxy onto an AX.25 port
+ Puts a SOCKS5 proxy in front of one AX.25 port. Every connection it accepts
+ becomes a connected-mode AX.25 session to a callsign, and the bytes pass
+ through untouched, so curl, ssh, browsers and any HTTP library reach a packet
+ station over an ordinary socket without knowing what AX.25 is.
+ .
+ The mapping is exact rather than approximate: a connected-mode AX.25 session
+ is reliable, ordered and flow-controlled, and so is a TCP connection, so the
+ proxy opens a link, copies bytes, and closes the link when they run out.
+ Streams only; there is no UDP and no ping.
+ .
+ Carries its own AX.25 v2.2 data link and speaks KISS to a TNC over a serial
+ port or over TCP, so it needs no kernel support, no kissattach and no
+ privilege. Reads the same /etc/axcall/ports as axcall, plus an
+ /etc/axcall/hosts giving names to stations.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required.
+
+Package: axsocks
+Version: 0.11.2
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 16459
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 12)
+Filename: pool/axsocks_0.11.2_armhf.deb
+Size: 6187084
+MD5sum: 94ff4da91b7b74f695d3e9154885ffee
+SHA1: 452382a2bccb0b39fd495d6fb1c7d2bad91513df
+SHA256: 47c3c6fbcab36375230abd210f77043fd012ad604e1d7a3b6fc29746a860df7d
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: SOCKS5 proxy onto an AX.25 port
+ Puts a SOCKS5 proxy in front of one AX.25 port. Every connection it accepts
+ becomes a connected-mode AX.25 session to a callsign, and the bytes pass
+ through untouched, so curl, ssh, browsers and any HTTP library reach a packet
+ station over an ordinary socket without knowing what AX.25 is.
+ .
+ The mapping is exact rather than approximate: a connected-mode AX.25 session
+ is reliable, ordered and flow-controlled, and so is a TCP connection, so the
+ proxy opens a link, copies bytes, and closes the link when they run out.
+ Streams only; there is no UDP and no ping.
+ .
+ Carries its own AX.25 v2.2 data link and speaks KISS to a TNC over a serial
+ port or over TCP, so it needs no kernel support, no kissattach and no
+ privilege. Reads the same /etc/axcall/ports as axcall, plus an
+ /etc/axcall/hosts giving names to stations.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required.
+
+Package: axtun
+Version: 0.11.2
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 15270
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 12)
+Filename: pool/axtun_0.11.2_armhf.deb
+Size: 5841992
+MD5sum: b2a1a48992fc2e96c9d2773b3ebb90aa
+SHA1: b67edaaaffda12a035a6f3e87c5b8147e408c705
+SHA256: d875fc1cfcc3054210910f8b5721709b5624f075fc35797fbece030d196bc5c3
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: IP over AX.25 on a TUN device
+ Carries IP over an AX.25 radio channel on a TUN device, so software that
+ already exists works over radio: ping, ssh, UDP, and a route to a remote
+ site's whole LAN. None of that is reachable through a stream proxy, which is
+ what axsocks and axinetd are.
+ .
+ Transmits IP in UI frames with PID 0xCC, because running IP inside a reliable
+ ARQ link sets two retransmission timers against the same loss and wrecks TCP's
+ round trip estimate. Accepts IP either way on receive, since both are
+ configured in the field. Answers AX.25 ARP, so a station that has not been
+ told about this one can still find it. Everything goes direct: layer 2
+ digipeating is not done here, so stations behind a repeater are not reachable.
+ .
+ Filters what goes out, and starts closed. An unfiltered IP interface on a
+ shared channel transmits mDNS, SSDP, NetBIOS and DHCP renewals unasked, under
+ the operator's personal licence; nothing is transmitted here that no rule
+ allows.
+ .
+ Carries its own AX.25 layer and speaks KISS to a TNC over a serial port or
+ over TCP, so it needs no kernel AX.25 stack and no kissattach. Creating the
+ interface needs CAP_NET_ADMIN; given a persistent device created in advance it
+ runs unprivileged.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required.
+
+Package: axtun
+Version: 0.11.2
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 3123
+Depends: libc6 (>= 2.34)
+Filename: pool/axtun_0.11.2_amd64.deb
+Size: 1250940
+MD5sum: 9cde724ceae72be9dff18defb15685fa
+SHA1: 5b88566febc14d523cde31c3a116dec53a15317d
+SHA256: eee95bd8276bc23be4539974cd38a871698fc04a0efb3fc39ed31fdb69c1b0bd
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: IP over AX.25 on a TUN device
+ Carries IP over an AX.25 radio channel on a TUN device, so software that
+ already exists works over radio: ping, ssh, UDP, and a route to a remote
+ site's whole LAN. None of that is reachable through a stream proxy, which is
+ what axsocks and axinetd are.
+ .
+ Transmits IP in UI frames with PID 0xCC, because running IP inside a reliable
+ ARQ link sets two retransmission timers against the same loss and wrecks TCP's
+ round trip estimate. Accepts IP either way on receive, since both are
+ configured in the field. Answers AX.25 ARP, so a station that has not been
+ told about this one can still find it. Everything goes direct: layer 2
+ digipeating is not done here, so stations behind a repeater are not reachable.
+ .
+ Filters what goes out, and starts closed. An unfiltered IP interface on a
+ shared channel transmits mDNS, SSDP, NetBIOS and DHCP renewals unasked, under
+ the operator's personal licence; nothing is transmitted here that no rule
+ allows.
+ .
+ Carries its own AX.25 layer and speaks KISS to a TNC over a serial port or
+ over TCP, so it needs no kernel AX.25 stack and no kissattach. Creating the
+ interface needs CAP_NET_ADMIN; given a persistent device created in advance it
+ runs unprivileged.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required.
+
+Package: axtun
+Version: 0.11.2
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 3254
+Depends: libc6 (>= 2.34)
+Filename: pool/axtun_0.11.2_arm64.deb
+Size: 1110376
+MD5sum: 5863a907a9cbba942b10e209c5e9366b
+SHA1: c30d5a28118ebd2cfd77250065f82249a5660b27
+SHA256: 8658ecec831aa92f7f6f770e7130024c7b3b2bc594748047b3d9a79c1c27ad3b
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/axcall
+Description: IP over AX.25 on a TUN device
+ Carries IP over an AX.25 radio channel on a TUN device, so software that
+ already exists works over radio: ping, ssh, UDP, and a route to a remote
+ site's whole LAN. None of that is reachable through a stream proxy, which is
+ what axsocks and axinetd are.
+ .
+ Transmits IP in UI frames with PID 0xCC, because running IP inside a reliable
+ ARQ link sets two retransmission timers against the same loss and wrecks TCP's
+ round trip estimate. Accepts IP either way on receive, since both are
+ configured in the field. Answers AX.25 ARP, so a station that has not been
+ told about this one can still find it. Everything goes direct: layer 2
+ digipeating is not done here, so stations behind a repeater are not reachable.
+ .
+ Filters what goes out, and starts closed. An unfiltered IP interface on a
+ shared channel transmits mDNS, SSDP, NetBIOS and DHCP renewals unasked, under
+ the operator's personal licence; nothing is transmitted here that no rule
+ allows.
+ .
+ Carries its own AX.25 layer and speaks KISS to a TNC over a serial port or
+ over TCP, so it needs no kernel AX.25 stack and no kissattach. Creating the
+ interface needs CAP_NET_ADMIN; given a persistent device created in advance it
+ runs unprivileged.
+ .
+ Self-contained: bundles its own .NET runtime, so no system runtime is
+ required.
+
+Package: dapps
+Version: 0.40.0
+Architecture: armhf
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 110784
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 12), libicu76 | libicu74 | libicu72 | libicu71 | libicu70 | libicu69 | libicu68 | libicu67 | libicu66 | libicu63, libssl3t64 | libssl3 | libssl1.1, ca-certificates, tzdata, adduser
+Filename: pool/dapps_0.40.0_armhf.deb
+Size: 35146708
+MD5sum: 1112eb216fa640a17503e9291b6c85bb
+SHA1: 62473c1f4d5d0236aaa584dd332a95369377d01f
+SHA256: 6d77d99dfccde485f29d887372a59a5d1d27a1b46710a7fad4e98dd64c2273f9
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/dapps
+Description: Store-and-forward messaging overlay for packet radio
+ DAPPS - Distributed Asynchronous Packet Pub-Sub - is a daemon you run beside
+ your packet node. Local applications publish and subscribe over MQTT or REST,
+ naming their destination as app@CALLSIGN; DAPPS finds a path and delivers when
+ it can, handling routing, forwarding, fragmenting, retrying and acking.
+ .
+ Backhaul is bearer-agnostic: BPQ over AGW, XRouter over RHPv2, and MeshCore.
+ .
+ Ships a systemd unit, enabled and started on install. There is no callsign to
+ configure up front - open the dashboard on http://<host>:5000/ and the /Setup
+ wizard takes the admin password, the callsign and the bearer. Deployment-level
+ overrides (bind address, ports) live in /etc/dapps/dapps.env.
+ .
+ Upgrades come from apt, so the in-app updater is off in this package: there is
+ no dapps-updater unit and the update check is seeded off. "apt upgrade" is the
+ update path.
+ .
+ AGPL-3.0-or-later.
+
+Package: dapps
+Version: 0.40.0
+Architecture: amd64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 118068
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 6), libicu76 | libicu74 | libicu72 | libicu71 | libicu70 | libicu69 | libicu68 | libicu67 | libicu66 | libicu63, libssl3t64 | libssl3 | libssl1.1, ca-certificates, tzdata, adduser
+Filename: pool/dapps_0.40.0_amd64.deb
+Size: 37935400
+MD5sum: e061e0fc2f693db3b53beea357060bc3
+SHA1: b55557df9cbfa4aa884be97a7b8034aff91898e9
+SHA256: 8a44113eff6a4c2f585a51e320f52f9fa1db92f76d98ca2f078515d9a72b40b3
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/dapps
+Description: Store-and-forward messaging overlay for packet radio
+ DAPPS - Distributed Asynchronous Packet Pub-Sub - is a daemon you run beside
+ your packet node. Local applications publish and subscribe over MQTT or REST,
+ naming their destination as app@CALLSIGN; DAPPS finds a path and delivers when
+ it can, handling routing, forwarding, fragmenting, retrying and acking.
+ .
+ Backhaul is bearer-agnostic: BPQ over AGW, XRouter over RHPv2, and MeshCore.
+ .
+ Ships a systemd unit, enabled and started on install. There is no callsign to
+ configure up front - open the dashboard on http://<host>:5000/ and the /Setup
+ wizard takes the admin password, the callsign and the bearer. Deployment-level
+ overrides (bind address, ports) live in /etc/dapps/dapps.env.
+ .
+ Upgrades come from apt, so the in-app updater is off in this package: there is
+ no dapps-updater unit and the update check is seeded off. "apt upgrade" is the
+ update path.
+ .
+ AGPL-3.0-or-later.
+
+Package: dapps
+Version: 0.40.0
+Architecture: arm64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 127008
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 6), libicu76 | libicu74 | libicu72 | libicu71 | libicu70 | libicu69 | libicu68 | libicu67 | libicu66 | libicu63, libssl3t64 | libssl3 | libssl1.1, ca-certificates, tzdata, adduser
+Filename: pool/dapps_0.40.0_arm64.deb
+Size: 34180420
+MD5sum: df4f2be41cb32a531f6e8edef585e08d
+SHA1: 2114dfa5513c7b8755258c1d9ce255363827c5b7
+SHA256: 69763c47fe823633840abd1cd6a9d4fb0866713f53293fdb955d0033f633616b
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/dapps
+Description: Store-and-forward messaging overlay for packet radio
+ DAPPS - Distributed Asynchronous Packet Pub-Sub - is a daemon you run beside
+ your packet node. Local applications publish and subscribe over MQTT or REST,
+ naming their destination as app@CALLSIGN; DAPPS finds a path and delivers when
+ it can, handling routing, forwarding, fragmenting, retrying and acking.
+ .
+ Backhaul is bearer-agnostic: BPQ over AGW, XRouter over RHPv2, and MeshCore.
+ .
+ Ships a systemd unit, enabled and started on install. There is no callsign to
+ configure up front - open the dashboard on http://<host>:5000/ and the /Setup
+ wizard takes the admin password, the callsign and the bearer. Deployment-level
+ overrides (bind address, ports) live in /etc/dapps/dapps.env.
+ .
+ Upgrades come from apt, so the in-app updater is off in this package: there is
+ no dapps-updater unit and the update check is seeded off. "apt upgrade" is the
+ update path.
+ .
+ AGPL-3.0-or-later.
+
+Package: nprflash
+Version: 1.0.0
+Architecture: all
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 148
+Depends: python3 (>= 3.10), python3-serial
+Filename: pool/nprflash_1.0.0_all.deb
+Size: 21060
+MD5sum: 7951953dd358bd7bc007e4bb08c34d5d
+SHA1: c3e1834003fc559220e2b659fd6403461b06984c
+SHA256: 49a03fafd043f2cc2577e6c5285d47fe9a8f188c5b36034fae3a320fb9f66152
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/M0LTE/nprflash
+Description: firmware tooling for the NPR-H 3.0 packet radio modem
+ Build .nfw firmware containers, flash them to an NPR-H 3.0 over the
+ bootloader's USB serial port or across the network to a running unit, and read
+ the application's serial console to confirm what the modem is actually
+ running.
+ .
+ This package uses the Python already on the system rather than bundling an
+ interpreter, so it is architecture-independent and installs the same on a
+ Raspberry Pi as on a server.
+ .
+ GPL-3.0-or-later.
+
+Package: packetnet
+Version: 0.55.2
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Depends: adduser, curl, libc6 (>= 2.34), libstdc++6 (>= 6), polkitd | policykit-1, libhamlib-utils
+Recommends: python3, avahi-daemon, avahi-utils
+Filename: pool/packetnet_arm64.deb
+Size: 49458684
+MD5sum: bf9509e257dd461993a63b7cbfc06d3a
+SHA1: cc697c7ce83026a33407c36d9be36c3123bf9a45
+SHA256: e506585ac9c20af0b317d9b6d96e2d69eaee20165483f253c150475540c3d38d
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/packet.net
+Description: Packet.NET AX.25 packet-radio node (pdn)
+ A modern AX.25 v2.2 packet-radio node host built on .NET. Connected-mode
+ sessions over KISS (serial/USB or TCP) and AX.25-over-UDP, with a telnet
+ console and an HTTP management surface. Self-contained: bundles its own
+ .NET runtime, so no system runtime is required.
+
+Package: packetnet
+Version: 0.55.2
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Depends: adduser, curl, libc6 (>= 2.34), libstdc++6 (>= 6), polkitd | policykit-1, libhamlib-utils
+Recommends: python3, avahi-daemon, avahi-utils
+Filename: pool/packetnet_amd64.deb
+Size: 56658824
+MD5sum: c97df7c13ca9b6e12bc5e6c38ad5b970
+SHA1: f229d416efa19bc3f1298736bf1b11bc45cf16af
+SHA256: 775bb79d7dbe70cf6d7006827b36678f6251accca0c1f150f851df69642ab055
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/packet.net
+Description: Packet.NET AX.25 packet-radio node (pdn)
+ A modern AX.25 v2.2 packet-radio node host built on .NET. Connected-mode
+ sessions over KISS (serial/USB or TCP) and AX.25-over-UDP, with a telnet
+ console and an HTTP management surface. Self-contained: bundles its own
+ .NET runtime, so no system runtime is required.
+
+Package: packetnet
+Version: 0.55.2
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Depends: adduser, curl, libc6 (>= 2.34), libstdc++6 (>= 12), polkitd | policykit-1, libhamlib-utils
+Recommends: python3, avahi-daemon, avahi-utils
+Filename: pool/packetnet_armhf.deb
+Size: 54025984
+MD5sum: 99af63c83d91f519aa3f51e643f46d4d
+SHA1: 8df0828cc580cc91ae2e04d071f03e2bc58dc45b
+SHA256: 0609d31a9e4e55b0c7b05315492c462daef17837a78670c43980e1ec47104a1e
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/packet.net
+Description: Packet.NET AX.25 packet-radio node (pdn)
+ A modern AX.25 v2.2 packet-radio node host built on .NET. Connected-mode
+ sessions over KISS (serial/USB or TCP) and AX.25-over-UDP, with a telnet
+ console and an HTTP management surface. Self-contained: bundles its own
+ .NET runtime, so no system runtime is required.
+
+Package: pdn-bbs
+Version: 0.2.54
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Recommends: packetnet
+Filename: pool/pdn-bbs_0.2.54_arm64.deb
+Size: 32530988
+MD5sum: b99936f740623abcce0fe5f01a87b136
+SHA1: 623ce63fdc8a95f65b0eaae67ca110bf4f2e6257
+SHA256: f1a2c4503d48f821135a0bab537f063f63370b35e0fc7b30eec681cf58a12a4a
+Section: misc
+Priority: optional
+Homepage: https://github.com/m0lte/pdn-bbs
+Description: Packet-radio BBS app package for the Packet.NET node (pdn)
+ A ground-up packet-radio mailbox — personal mail, bulletins and NTS traffic
+ with FBB-compatible store-and-forward and webmail. Ships as a Packet.NET app
+ PACKAGE: pdn discovers it under /usr/share/packetnet/apps/bbs and the node
+ owner enables it from the control panel. Self-contained: bundles its own .NET
+ runtime, so no system runtime is required. Inert without the packetnet node
+ host (hence the soft Recommends), but installable standalone.
+
+Package: pdn-bbs
+Version: 0.2.54
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Recommends: packetnet
+Filename: pool/pdn-bbs_0.2.54_armhf.deb
+Size: 34350064
+MD5sum: 9079ce3aa26458c7b1c43ca6207246da
+SHA1: bd4853963f9b4d2bb4d0483969372536b3855bc3
+SHA256: 2df2fab47f62a9ecd344557b766c5810c697bdb5345b8a7586aca14c9f536155
+Section: misc
+Priority: optional
+Homepage: https://github.com/m0lte/pdn-bbs
+Description: Packet-radio BBS app package for the Packet.NET node (pdn)
+ A ground-up packet-radio mailbox — personal mail, bulletins and NTS traffic
+ with FBB-compatible store-and-forward and webmail. Ships as a Packet.NET app
+ PACKAGE: pdn discovers it under /usr/share/packetnet/apps/bbs and the node
+ owner enables it from the control panel. Self-contained: bundles its own .NET
+ runtime, so no system runtime is required. Inert without the packetnet node
+ host (hence the soft Recommends), but installable standalone.
+
+Package: pdn-bbs
+Version: 0.2.54
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Recommends: packetnet
+Filename: pool/pdn-bbs_0.2.54_amd64.deb
+Size: 35854640
+MD5sum: 8289d46f5524d7fb604e567d304ce54a
+SHA1: a19e838bd3c16d08730bfc329516fe2649fd80e8
+SHA256: b2ce0e6e4339ae3c8bcf39c398efa1c7eb7bacf29aed67bf5877d293aab8d96f
+Section: misc
+Priority: optional
+Homepage: https://github.com/m0lte/pdn-bbs
+Description: Packet-radio BBS app package for the Packet.NET node (pdn)
+ A ground-up packet-radio mailbox — personal mail, bulletins and NTS traffic
+ with FBB-compatible store-and-forward and webmail. Ships as a Packet.NET app
+ PACKAGE: pdn discovers it under /usr/share/packetnet/apps/bbs and the node
+ owner enables it from the control panel. Self-contained: bundles its own .NET
+ runtime, so no system runtime is required. Inert without the packetnet node
+ host (hence the soft Recommends), but installable standalone.
+
+Package: pdn-bpqchat
+Version: 0.2.1
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 11484
+Recommends: packetnet
+Filename: pool/pdn-bpqchat_0.2.1_arm64.deb
+Size: 3513216
+MD5sum: 560a31aa251e6d97ceb18a1729dbeac9
+SHA1: 6717250ce75604ae9f77987d600f0aa763b7687c
+SHA256: dea1cf745e1752943a7b8e150db66f2f44dc3539b78a26cf2f00818384fe1bee
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/m0lte/pdn-bpqchat
+Description: BPQ-Chat-compatible chat node app package for the Packet.NET node (pdn)
+ A BPQ-Chat-compatible chat node — multi-user chat for RF and web users that
+ peers with the BPQ Chat network. Ships as a Packet.NET app PACKAGE: pdn
+ discovers it under /usr/share/packetnet/apps/bpqchat and the node owner enables
+ it from the control panel (default off). A single static Go binary — no runtime
+ or shared-library dependencies. Inert without the packetnet node host (hence the
+ soft Recommends), but installable standalone.
+
+Package: pdn-bpqchat
+Version: 0.2.1
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 12288
+Recommends: packetnet
+Filename: pool/pdn-bpqchat_0.2.1_amd64.deb
+Size: 4107764
+MD5sum: 6d4dc0e29ae032ef34b151af5919ef19
+SHA1: f10f97fb11741e0ffe7572cb7d94eb3ed5b753b7
+SHA256: 3918c712014ed4960f4933bf5a28fd1dd5c2cd55eb5befd8b61438bd14fe0fa0
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/m0lte/pdn-bpqchat
+Description: BPQ-Chat-compatible chat node app package for the Packet.NET node (pdn)
+ A BPQ-Chat-compatible chat node — multi-user chat for RF and web users that
+ peers with the BPQ Chat network. Ships as a Packet.NET app PACKAGE: pdn
+ discovers it under /usr/share/packetnet/apps/bpqchat and the node owner enables
+ it from the control panel (default off). A single static Go binary — no runtime
+ or shared-library dependencies. Inert without the packetnet node host (hence the
+ soft Recommends), but installable standalone.
+
+Package: pdn-bpqchat
+Version: 0.2.1
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Installed-Size: 11804
+Recommends: packetnet
+Filename: pool/pdn-bpqchat_0.2.1_armhf.deb
+Size: 3575708
+MD5sum: 8fb42528ddbda0018fbd59fd5067a1bd
+SHA1: 92701cb50f10340f036fcc7a051f497f49dfbb02
+SHA256: 3917b63af6137624f367f73b38624df47304d7f654f9a6d53640fa07b8f7581d
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/m0lte/pdn-bpqchat
+Description: BPQ-Chat-compatible chat node app package for the Packet.NET node (pdn)
+ A BPQ-Chat-compatible chat node — multi-user chat for RF and web users that
+ peers with the BPQ Chat network. Ships as a Packet.NET app PACKAGE: pdn
+ discovers it under /usr/share/packetnet/apps/bpqchat and the node owner enables
+ it from the control panel (default off). A single static Go binary — no runtime
+ or shared-library dependencies. Inert without the packetnet node host (hence the
+ soft Recommends), but installable standalone.
+
+Package: pdn-convers
+Version: 0.1.4
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Recommends: packetnet
+Filename: pool/pdn-convers_0.1.4_amd64.deb
+Size: 33246708
+MD5sum: 67824275eda80883761b4e7064aaa385
+SHA1: 87b488e971a9d6093648e23f0da046385dd63b30
+SHA256: 7957fea844dedd7bc8cc9d583a99346308430bd69b7a0defd186ee6ee71a9eb7
+Section: misc
+Priority: optional
+Homepage: https://github.com/m0lte/pdn-convers
+Description: Packet-radio convers (round-table chat) app package for the Packet.NET node (pdn)
+ A ground-up packet-radio convers node — round-table chat for RF and web users,
+ joining the worldwide convers network as a single leaf node. Ships as a Packet.NET
+ app PACKAGE: pdn discovers it under /usr/share/packetnet/apps/convers and the node
+ owner enables it from the control panel. Self-contained: bundles its own .NET
+ runtime, so no system runtime is required. Inert without the packetnet node host
+ (hence the soft Recommends), but installable standalone.
+
+Package: pdn-convers
+Version: 0.1.4
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Recommends: packetnet
+Filename: pool/pdn-convers_0.1.4_arm64.deb
+Size: 29883748
+MD5sum: 64c1f41f7afc0208ee74ac4137e07262
+SHA1: b531eb0e9420ee7fbae3ae593e07dfa3c09287d5
+SHA256: 6d1f880518df73a7156eb20a1a252c9964d2feeac4612ba25547564d32984976
+Section: misc
+Priority: optional
+Homepage: https://github.com/m0lte/pdn-convers
+Description: Packet-radio convers (round-table chat) app package for the Packet.NET node (pdn)
+ A ground-up packet-radio convers node — round-table chat for RF and web users,
+ joining the worldwide convers network as a single leaf node. Ships as a Packet.NET
+ app PACKAGE: pdn discovers it under /usr/share/packetnet/apps/convers and the node
+ owner enables it from the control panel. Self-contained: bundles its own .NET
+ runtime, so no system runtime is required. Inert without the packetnet node host
+ (hence the soft Recommends), but installable standalone.
+
+Package: pdn-convers
+Version: 0.1.4
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Recommends: packetnet
+Filename: pool/pdn-convers_0.1.4_armhf.deb
+Size: 31752988
+MD5sum: 068a48dc64ea62afeb7fdc0ce85724c5
+SHA1: 9eb67efe56425b8d5689122a1713598ffbc2eeb9
+SHA256: 178701f724a4eda6878fcdba8ebcf17a89a32ea34523ed1073e09adbf4e7d05c
+Section: misc
+Priority: optional
+Homepage: https://github.com/m0lte/pdn-convers
+Description: Packet-radio convers (round-table chat) app package for the Packet.NET node (pdn)
+ A ground-up packet-radio convers node — round-table chat for RF and web users,
+ joining the worldwide convers network as a single leaf node. Ships as a Packet.NET
+ app PACKAGE: pdn discovers it under /usr/share/packetnet/apps/convers and the node
+ owner enables it from the control panel. Self-contained: bundles its own .NET
+ runtime, so no system runtime is required. Inert without the packetnet node host
+ (hence the soft Recommends), but installable standalone.
+
+Package: pdn-libax25
+Version: 0.1.0
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Depends: libc6
+Recommends: packetnet
+Filename: pool/pdn-libax25_0.1.0_arm64.deb
+Size: 329102
+MD5sum: fd5a2675de74f15a72482d4fbd8adf10
+SHA1: 56dc9f5015518ac5929eeeb57b22eb094c8f5abf
+SHA256: c879002fdf3f89278e8f0824bc57c633a43f541d90fd03b3e18dcecfd4dbc29f
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-libax25
+Description: AF_AX25 seam for the pdn AX.25 stack (opt-in LD_PRELOAD shim)
+ Lets unmodified Linux ham-radio applications (ax25-apps, ax25-tools, FBB, ...)
+ use the pdn AX.25 stack (packet.net) instead of the Linux kernel AF_AX25 stack,
+ which was removed from mainline in Linux 7.1.
+ .
+ Ships two native LGPL-3.0 artifacts into the PRIVATE path /usr/lib/pdn-libax25/
+ (never the default library path, so system AX.25 is not hijacked):
+ libax25.so.1, a drop-in for ve7fet libax25's helper/axports ABI; and
+ ax25-interpose.so, an LD_PRELOAD libc interposer that routes AF_AX25 sockets to
+ a pdn node over RHPv2. Turn the shim on per-command with the pdn-ax25 wrapper,
+ e.g. `pdn-ax25 axcall radio GB7RDG`. Loosely coupled to the node over RHPv2.
+
+Package: pdn-libax25
+Version: 0.1.0
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Depends: libc6
+Recommends: packetnet
+Filename: pool/pdn-libax25_0.1.0_amd64.deb
+Size: 336920
+MD5sum: 63a106b5be8ab6e6a7ba83eed9d05f5d
+SHA1: 9457072c14b0d243bc49ed679df4e6fb3381e64f
+SHA256: 2b8538ddfeebb3cfada6b8919bcfd5e0666885ca49d1602339d24b23f50df61b
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-libax25
+Description: AF_AX25 seam for the pdn AX.25 stack (opt-in LD_PRELOAD shim)
+ Lets unmodified Linux ham-radio applications (ax25-apps, ax25-tools, FBB, ...)
+ use the pdn AX.25 stack (packet.net) instead of the Linux kernel AF_AX25 stack,
+ which was removed from mainline in Linux 7.1.
+ .
+ Ships two native LGPL-3.0 artifacts into the PRIVATE path /usr/lib/pdn-libax25/
+ (never the default library path, so system AX.25 is not hijacked):
+ libax25.so.1, a drop-in for ve7fet libax25's helper/axports ABI; and
+ ax25-interpose.so, an LD_PRELOAD libc interposer that routes AF_AX25 sockets to
+ a pdn node over RHPv2. Turn the shim on per-command with the pdn-ax25 wrapper,
+ e.g. `pdn-ax25 axcall radio GB7RDG`. Loosely coupled to the node over RHPv2.
+
+Package: pdn-libax25
+Version: 0.1.0
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Depends: libc6
+Recommends: packetnet
+Filename: pool/pdn-libax25_0.1.0_armhf.deb
+Size: 343608
+MD5sum: aa74668e8d86dbeaade7aa594745a402
+SHA1: 44953215567591bff22b5860816bca91f54c38f8
+SHA256: f78648ca96bc52dc015eea62c6cefec645184dfc44ec9338ed2854027a65fc1f
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-libax25
+Description: AF_AX25 seam for the pdn AX.25 stack (opt-in LD_PRELOAD shim)
+ Lets unmodified Linux ham-radio applications (ax25-apps, ax25-tools, FBB, ...)
+ use the pdn AX.25 stack (packet.net) instead of the Linux kernel AF_AX25 stack,
+ which was removed from mainline in Linux 7.1.
+ .
+ Ships two native LGPL-3.0 artifacts into the PRIVATE path /usr/lib/pdn-libax25/
+ (never the default library path, so system AX.25 is not hijacked):
+ libax25.so.1, a drop-in for ve7fet libax25's helper/axports ABI; and
+ ax25-interpose.so, an LD_PRELOAD libc interposer that routes AF_AX25 sockets to
+ a pdn node over RHPv2. Turn the shim on per-command with the pdn-ax25 wrapper,
+ e.g. `pdn-ax25 axcall radio GB7RDG`. Loosely coupled to the node over RHPv2.
+
+Package: pdn-net
+Version: 0.1.0
+Architecture: arm64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Depends: libc6, libgcc-s1, libstdc++6
+Recommends: packetnet, iproute2
+Filename: pool/pdn-net_0.1.0_arm64.deb
+Size: 26022280
+MD5sum: 7ce48036fd898b230a365e12fdd286fe
+SHA1: 481a467df6e62e83014036f832b2288d4abbeb35
+SHA256: a7c7e93affc4806eb3818c2d4a4a3c1e777315d49d5e5884eb90645e2dadbab5
+Section: net
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-net
+Description: IP-over-packet-radio TUN host stack (pdn-net)
+ Brings up a pdn0 TUN interface and bridges IP packets to and from AX.25 UI
+ frames (standard IP-over-AX.25, PID 0xCC) through a Packet.NET (pdn) node over
+ RHPv2. Ordinary Linux IP software - ssh, mosh, mqtt, ping - runs unmodified
+ over packet radio; nothing in the application knows it is talking over radio.
+ .
+ Self-contained: bundles its own .NET runtime, so no system .NET is required.
+ The systemd unit ships DISABLED - configure /etc/pdn-net/pdn-net.json and
+ assign the pdn0 interface an address, then `systemctl enable --now pdn-net`.
+
+Package: pdn-net
+Version: 0.1.0
+Architecture: armhf
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Depends: libc6, libgcc-s1, libstdc++6
+Recommends: packetnet, iproute2
+Filename: pool/pdn-net_0.1.0_armhf.deb
+Size: 26505974
+MD5sum: 5834de5793d74336fcadcc6c61d8302e
+SHA1: b4e2315bd7ef81ba1b6f40801250a74e973b8d0b
+SHA256: 46dc6da0c101e7b390e2ff48b221dce207c843a63976c821a956a49bec3daf22
+Section: net
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-net
+Description: IP-over-packet-radio TUN host stack (pdn-net)
+ Brings up a pdn0 TUN interface and bridges IP packets to and from AX.25 UI
+ frames (standard IP-over-AX.25, PID 0xCC) through a Packet.NET (pdn) node over
+ RHPv2. Ordinary Linux IP software - ssh, mosh, mqtt, ping - runs unmodified
+ over packet radio; nothing in the application knows it is talking over radio.
+ .
+ Self-contained: bundles its own .NET runtime, so no system .NET is required.
+ The systemd unit ships DISABLED - configure /etc/pdn-net/pdn-net.json and
+ assign the pdn0 interface an address, then `systemctl enable --now pdn-net`.
+
+Package: pdn-net
+Version: 0.1.0
+Architecture: amd64
+Maintainer: Tom Fanning <tom@m0lte.uk>
+Depends: libc6, libgcc-s1, libstdc++6
+Recommends: packetnet, iproute2
+Filename: pool/pdn-net_0.1.0_amd64.deb
+Size: 28313536
+MD5sum: 780ca4e81642757cd3c75df919403d71
+SHA1: 1c7ed909324b9cefbf906718be97e22022f43d3d
+SHA256: 31e1329a979db9e3e8f8c4b6dbad1eea0423008c9f17bbdc9bb6569d927cf24d
+Section: net
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-net
+Description: IP-over-packet-radio TUN host stack (pdn-net)
+ Brings up a pdn0 TUN interface and bridges IP packets to and from AX.25 UI
+ frames (standard IP-over-AX.25, PID 0xCC) through a Packet.NET (pdn) node over
+ RHPv2. Ordinary Linux IP software - ssh, mosh, mqtt, ping - runs unmodified
+ over packet radio; nothing in the application knows it is talking over radio.
+ .
+ Self-contained: bundles its own .NET runtime, so no system .NET is required.
+ The systemd unit ships DISABLED - configure /etc/pdn-net/pdn-net.json and
+ assign the pdn0 interface an address, then `systemctl enable --now pdn-net`.
+
+Package: pdn-qso
+Version: 0.7.0
+Architecture: arm64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 93828
+Depends: libc6, libgcc-s1, libstdc++6, libasound2 | libasound2t64
+Filename: pool/pdn-qso_arm64.deb
+Size: 27293316
+MD5sum: dccfb260f429f2103ca6b304004fcea6
+SHA1: e177665130c1231d08db33fb81e2d9484968b8b7
+SHA256: 5eb5c79b3b7cdb8c871b2f88c865084231ccc96c8dc2c46e444aeffbfa65a80a
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-qso
+Description: Interactive two-way testing over the pdn-soundmodem modems
+ A full-screen terminal tool for two stations to talk to each other over any of
+ the pdn-soundmodem modems: a Monitor pane that shows every frame heard, a
+ keyboard-to-keyboard Chat with an acknowledged ARQ, a fountain-coded File
+ transfer, and a Perf mode that produces numbers you can screenshot.
+ .
+ Drives a FlexRadio 6000-series over the LAN, a sound card with a CM108 PTT
+ widget, or a public UberSDR web receiver for listening only.
+ .
+ Run it as yourself: there is no service and no system-wide configuration.
+ Settings are written to ~/.config/pdn-qso/config.json on first run.
+ .
+ AGPL-3.0-or-later.
+
+Package: pdn-qso
+Version: 0.7.0
+Architecture: armhf
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 82960
+Depends: libc6, libgcc-s1, libstdc++6, libasound2 | libasound2t64
+Filename: pool/pdn-qso_armhf.deb
+Size: 28295556
+MD5sum: c196fdbf545a727f5e160d6f3b120847
+SHA1: b4681aa087902f55e863ab57dd3d5e71939ebb87
+SHA256: 473357a47fdc07209350e86800c8f9a5a8b0e5b689d15c6b821bdfe2e38b714a
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-qso
+Description: Interactive two-way testing over the pdn-soundmodem modems
+ A full-screen terminal tool for two stations to talk to each other over any of
+ the pdn-soundmodem modems: a Monitor pane that shows every frame heard, a
+ keyboard-to-keyboard Chat with an acknowledged ARQ, a fountain-coded File
+ transfer, and a Perf mode that produces numbers you can screenshot.
+ .
+ Drives a FlexRadio 6000-series over the LAN, a sound card with a CM108 PTT
+ widget, or a public UberSDR web receiver for listening only.
+ .
+ Run it as yourself: there is no service and no system-wide configuration.
+ Settings are written to ~/.config/pdn-qso/config.json on first run.
+ .
+ AGPL-3.0-or-later.
+
+Package: pdn-qso
+Version: 0.7.0
+Architecture: amd64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 86520
+Depends: libc6, libgcc-s1, libstdc++6, libasound2 | libasound2t64
+Filename: pool/pdn-qso_amd64.deb
+Size: 29294696
+MD5sum: 7f5383ee23aa0da1b6393aa7a1e5b00f
+SHA1: f38fe65506a778507567382728e0c9e334bd5c72
+SHA256: 9994f4e441280d98a7401695272579ecc06877b91f4cd2c2641b53b9ee673b09
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-qso
+Description: Interactive two-way testing over the pdn-soundmodem modems
+ A full-screen terminal tool for two stations to talk to each other over any of
+ the pdn-soundmodem modems: a Monitor pane that shows every frame heard, a
+ keyboard-to-keyboard Chat with an acknowledged ARQ, a fountain-coded File
+ transfer, and a Perf mode that produces numbers you can screenshot.
+ .
+ Drives a FlexRadio 6000-series over the LAN, a sound card with a CM108 PTT
+ widget, or a public UberSDR web receiver for listening only.
+ .
+ Run it as yourself: there is no service and no system-wide configuration.
+ Settings are written to ~/.config/pdn-qso/config.json on first run.
+ .
+ AGPL-3.0-or-later.
+
+Package: pdn-soundmodem
+Version: 0.80.0
+Architecture: armhf
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 74320
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 12), libasound2 | libasound2t64, adduser
+Filename: pool/pdn-soundmodem_0.80.0_armhf.deb
+Size: 24347212
+MD5sum: 4900c27804007a99fd9ab06ae40a175f
+SHA1: 949657cbda8f03ca41e29cbacd908a2cf97620c6
+SHA256: b2c4c91a7fea1c259ef37ff94bbe0dc95b4e25002cddc6af55201cf342691c2a
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-soundmodem
+Description: Headless soundcard packet-radio modem (KISS TCP)
+ AFSK 1200, BPSK 300 / QPSK 2400 / QPSK 3600 (IL2P+CRC), 9600 baseband
+ (classic G3RUH and IL2P) and FX.25, with native DCD, p-persistent CSMA,
+ serial/CM108 PTT and a multi-client KISS-over-TCP server.
+ .
+ Ships a systemd unit, enabled and started on install. The modem has no useful
+ defaults, so edit /etc/pdn-soundmodem/soundmodem.json for your sound device and
+ PTT and then "systemctl restart pdn-soundmodem"; until you do, the service will
+ fail to start and "systemctl status pdn-soundmodem" will say why.
+ .
+ A second modem on the same machine is a second config file and a template
+ instance: /etc/pdn-soundmodem/NAME.json and "systemctl enable --now
+ pdn-soundmodem@NAME". Instances are never enabled by the package.
+ .
+ GPL-3.0-or-later.
+
+Package: pdn-soundmodem
+Version: 0.80.0
+Architecture: amd64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 77332
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 6), libasound2 | libasound2t64, adduser
+Filename: pool/pdn-soundmodem_0.80.0_amd64.deb
+Size: 25672136
+MD5sum: 4fb6e25399e9e52742ae8b4714c57990
+SHA1: 36d6c7a63c42fc7d15812c59d127c53e3766fec8
+SHA256: d6fc55c601129acd2965e82df54c73161dee47ef4bf3410cd8b012d13e9cadb8
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-soundmodem
+Description: Headless soundcard packet-radio modem (KISS TCP)
+ AFSK 1200, BPSK 300 / QPSK 2400 / QPSK 3600 (IL2P+CRC), 9600 baseband
+ (classic G3RUH and IL2P) and FX.25, with native DCD, p-persistent CSMA,
+ serial/CM108 PTT and a multi-client KISS-over-TCP server.
+ .
+ Ships a systemd unit, enabled and started on install. The modem has no useful
+ defaults, so edit /etc/pdn-soundmodem/soundmodem.json for your sound device and
+ PTT and then "systemctl restart pdn-soundmodem"; until you do, the service will
+ fail to start and "systemctl status pdn-soundmodem" will say why.
+ .
+ A second modem on the same machine is a second config file and a template
+ instance: /etc/pdn-soundmodem/NAME.json and "systemctl enable --now
+ pdn-soundmodem@NAME". Instances are never enabled by the package.
+ .
+ GPL-3.0-or-later.
+
+Package: pdn-soundmodem
+Version: 0.80.0
+Architecture: arm64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 84624
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 6), libasound2 | libasound2t64, adduser
+Filename: pool/pdn-soundmodem_0.80.0_arm64.deb
+Size: 23006152
+MD5sum: fa6671b67d64b4f4ee2fe85ffb6f503f
+SHA1: 5bbb75c34f89c91621f15f443abe1a1baadfd38b
+SHA256: c7aca5a8ca8a07101c3fbb3b9cd25ea921eb31fc943dc9112fefbfcb4f1a8b50
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/packet-net/pdn-soundmodem
+Description: Headless soundcard packet-radio modem (KISS TCP)
+ AFSK 1200, BPSK 300 / QPSK 2400 / QPSK 3600 (IL2P+CRC), 9600 baseband
+ (classic G3RUH and IL2P) and FX.25, with native DCD, p-persistent CSMA,
+ serial/CM108 PTT and a multi-client KISS-over-TCP server.
+ .
+ Ships a systemd unit, enabled and started on install. The modem has no useful
+ defaults, so edit /etc/pdn-soundmodem/soundmodem.json for your sound device and
+ PTT and then "systemctl restart pdn-soundmodem"; until you do, the service will
+ fail to start and "systemctl status pdn-soundmodem" will say why.
+ .
+ A second modem on the same machine is a second config file and a template
+ instance: /etc/pdn-soundmodem/NAME.json and "systemctl enable --now
+ pdn-soundmodem@NAME". Instances are never enabled by the package.
+ .
+ GPL-3.0-or-later.
+
+Package: tait-cli
+Version: 0.1.1
+Architecture: arm64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 36416
+Depends: libc6 (>= 2.27), libgcc-s1, libstdc++6 (>= 6), zlib1g
+Filename: pool/tait-cli_0.1.1_arm64.deb
+Size: 28911024
+MD5sum: f9ec72f9c08017d66ad151a6984c6750
+SHA1: 9178a855b8a8480f751a460a460e12ba9009e317
+SHA256: 53c229310c6c33e312b10197ba2606506cbb5561e7f203a8c08299e5f50f6123
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/M0LTE/tait-cli
+Description: Tait TM8100/TM8200 CCDI command-line tool
+ A small shell for a Tait TM8100 or TM8200 mobile over its CCDI serial port:
+ run it against a port for an interactive prompt, or give it one command and it
+ prints the answer and exits. It reads the things the radio will tell you over
+ CCDI - model, serial number, firmware, band, current channel, signal level in
+ dBm and S-points, control-head display text and PA temperature - and can sit
+ watching the signal level until you stop it.
+ .
+ This is a self-contained build: it bundles the .NET runtime, so the machine it
+ runs on needs no .NET installed.
+ .
+ AGPL-3.0-or-later.
+
+Package: tait-cli
+Version: 0.1.1
+Architecture: amd64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 38476
+Depends: libc6 (>= 2.27), libgcc-s1, libstdc++6 (>= 6), zlib1g
+Filename: pool/tait-cli_0.1.1_amd64.deb
+Size: 30957340
+MD5sum: 308ee804b38e5b4cea26f67c1df7ffd7
+SHA1: 89d0160fe23c10f54b5d2c558ed4133c0e69f6da
+SHA256: 8072cda85779a8594098c344073ffa1b83185f4a1075f4a650220b4ea694318c
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/M0LTE/tait-cli
+Description: Tait TM8100/TM8200 CCDI command-line tool
+ A small shell for a Tait TM8100 or TM8200 mobile over its CCDI serial port:
+ run it against a port for an interactive prompt, or give it one command and it
+ prints the answer and exits. It reads the things the radio will tell you over
+ CCDI - model, serial number, firmware, band, current channel, signal level in
+ dBm and S-points, control-head display text and PA temperature - and can sit
+ watching the signal level until you stop it.
+ .
+ This is a self-contained build: it bundles the .NET runtime, so the machine it
+ runs on needs no .NET installed.
+ .
+ AGPL-3.0-or-later.
+
+Package: tait-cli
+Version: 0.1.1
+Architecture: armhf
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 33620
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 12), zlib1g
+Filename: pool/tait-cli_0.1.1_armhf.deb
+Size: 30213752
+MD5sum: 3918eb082c131b8f4faccc1f1dfe6acd
+SHA1: 366132521eda7e146f5137ecbe4f7c3128d71eaf
+SHA256: 3e2915ed4c59c4141f8c3e1c4a739e1981c578bb6e49c7c19919ed9614995a56
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/M0LTE/tait-cli
+Description: Tait TM8100/TM8200 CCDI command-line tool
+ A small shell for a Tait TM8100 or TM8200 mobile over its CCDI serial port:
+ run it against a port for an interactive prompt, or give it one command and it
+ prints the answer and exits. It reads the things the radio will tell you over
+ CCDI - model, serial number, firmware, band, current channel, signal level in
+ dBm and S-points, control-head display text and PA temperature - and can sit
+ watching the signal level until you stop it.
+ .
+ This is a self-contained build: it bundles the .NET runtime, so the machine it
+ runs on needs no .NET installed.
+ .
+ AGPL-3.0-or-later.
+
+Package: tait-codeplug
+Version: 0.15.0
+Architecture: armhf
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 35792
+Depends: libc6 (>= 2.34), libgcc-s1, libstdc++6 (>= 12), zlib1g, ca-certificates, libicu76 | libicu74 | libicu72 | libicu71 | libicu70 | libicu67
+Filename: pool/tait-codeplug_0.15.0_armhf.deb
+Size: 32411268
+MD5sum: 4827336da38b6363f4adfaa27932eb12
+SHA1: 56c036284fccc2573f82b4bf0ac135f1b8bb1e2c
+SHA256: dd63edaf2ca46f2f86fbc1ebff636a3ac55b28d802cd4e005cbf478032cb8310
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/M0LTE/tait-codeplug
+Description: Tait TM8100/TM8200 codeplug tool
+ Read, decode, edit and program the codeplug of a Tait TM8100 or TM8200 mobile
+ over a serial cable, without the Windows CPS. There is an interactive mode for
+ browsing and editing a radio or a saved file, and one-shot commands for
+ scripting, plus the Packet.NET upgrade profiles that set a radio up for a
+ packet modem in one step.
+ .
+ This is a self-contained build: it bundles the .NET runtime, so the machine it
+ runs on needs no .NET installed.
+ .
+ AGPL-3.0-or-later.
+
+Package: tait-codeplug
+Version: 0.15.0
+Architecture: amd64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 40832
+Depends: libc6 (>= 2.27), libgcc-s1, libstdc++6 (>= 6), zlib1g, ca-certificates, libicu76 | libicu74 | libicu72 | libicu71 | libicu70 | libicu67
+Filename: pool/tait-codeplug_0.15.0_amd64.deb
+Size: 33339096
+MD5sum: f61ba8e8dd8059500f08361da8628ea4
+SHA1: f82d35d097f82cc02f540d19ccc70d0335f7b531
+SHA256: d5d9dcb69a3d23dd5307bb63b005f4ce428d7308ceec6180c883d84c3873e2a8
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/M0LTE/tait-codeplug
+Description: Tait TM8100/TM8200 codeplug tool
+ Read, decode, edit and program the codeplug of a Tait TM8100 or TM8200 mobile
+ over a serial cable, without the Windows CPS. There is an interactive mode for
+ browsing and editing a radio or a saved file, and one-shot commands for
+ scripting, plus the Packet.NET upgrade profiles that set a radio up for a
+ packet modem in one step.
+ .
+ This is a self-contained build: it bundles the .NET runtime, so the machine it
+ runs on needs no .NET installed.
+ .
+ AGPL-3.0-or-later.
+
+Package: tait-codeplug
+Version: 0.15.0
+Architecture: arm64
+Maintainer: Tom Fanning M0LTE <tom@m0lte.uk>
+Installed-Size: 38772
+Depends: libc6 (>= 2.27), libgcc-s1, libstdc++6 (>= 6), zlib1g, ca-certificates, libicu76 | libicu74 | libicu72 | libicu71 | libicu70 | libicu67
+Filename: pool/tait-codeplug_0.15.0_arm64.deb
+Size: 31292352
+MD5sum: bd3a27b89aaaf5396053c4ab7639320d
+SHA1: c254b693e95bc6d21f5240e672af600da24e956a
+SHA256: 8f171e457ac8d17e9496c026009f5215e2d77d4ad594c2d04328b7060c627ad1
+Section: hamradio
+Priority: optional
+Homepage: https://github.com/M0LTE/tait-codeplug
+Description: Tait TM8100/TM8200 codeplug tool
+ Read, decode, edit and program the codeplug of a Tait TM8100 or TM8200 mobile
+ over a serial cable, without the Windows CPS. There is an interactive mode for
+ browsing and editing a radio or a saved file, and one-shot commands for
+ scripting, plus the Packet.NET upgrade profiles that set a radio up for a
+ packet modem in one step.
+ .
+ This is a self-contained build: it bundles the .NET runtime, so the machine it
+ runs on needs no .NET installed.
+ .
+ AGPL-3.0-or-later.
+
