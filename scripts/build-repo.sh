@@ -59,7 +59,7 @@ gzip -9 -c Packages > Packages.gz
   # flat repo has a single Packages index, not a per-architecture split, so there is nothing to
   # miss it out of), but the field is meant to describe what the repo actually carries.
   echo "Architectures: all amd64 arm64 armhf"
-  echo "Description: Public apt repository for packet-net packages (dapps, pdn-soundmodem, axcall, axinetd, axsocks, axtun, packetnet, pdn-bbs, pdn-bpqchat, pdn-convers, pdn-libax25, pdn-net, pdn-qso, tait-codeplug, tait-cli, nprflash)"
+  echo "Description: Public apt repository for packet-net packages (dapps, pdn-soundmodem, pdn-lin, axcall, axinetd, axsocks, axtun, packetnet, pdn-bbs, pdn-bpqchat, pdn-convers, pdn-libax25, pdn-net, pdn-qso, tait-codeplug, tait-cli, nprflash)"
   echo "MD5Sum:"
   for f in Packages Packages.gz; do
     printf ' %s %16d %s\n' "$(md5sum "$f" | cut -d' ' -f1)" "$(stat -c%s "$f")" "$f"

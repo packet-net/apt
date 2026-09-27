@@ -15,6 +15,7 @@
 # reaches apt. That is deliberate.
 
 packet-net/pdn-soundmodem
+packet-net/pdn-win
 packet-net/axcall
 packet-net/dapps
 packet-net/packet.net
