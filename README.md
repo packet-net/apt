@@ -8,7 +8,7 @@ Currently tracks the latest release of:
 
 - [pdn-soundmodem](https://github.com/packet-net/pdn-soundmodem) - `pdn-soundmodem`
 - [pdn-win](https://github.com/packet-net/pdn-win) - `pdn-lin` (pdn-win for Linux; `amd64` and `arm64`)
-- [axcall](https://github.com/packet-net/axcall) - `axcall`, `axinetd`, `axsocks`, `axtun`
+- [axcall](https://github.com/packet-net/axcall) - `axcall`, `axinetd`, `axlisten`, `axsocks`, `axtun`
 - [dapps](https://github.com/packet-net/dapps) - `dapps`
 - [packet.net](https://github.com/packet-net/packet.net) - `packetnet`
 - [pdn-bbs](https://github.com/packet-net/pdn-bbs) - `pdn-bbs`
@@ -31,7 +31,7 @@ The list lives in [`sources.txt`](sources.txt), one `owner/repo` per line.
 curl -fsSL https://packet-net.github.io/apt/pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/packet-net.gpg
 echo "deb [signed-by=/usr/share/keyrings/packet-net.gpg] https://packet-net.github.io/apt ./" | sudo tee /etc/apt/sources.list.d/packet-net.list
 sudo apt update
-sudo apt install dapps pdn-soundmodem pdn-lin axcall axinetd axsocks axtun packetnet pdn-bbs pdn-bpqchat pdn-convers pdn-libax25 pdn-net pdn-qso tait-codeplug tait-cli nprflash
+sudo apt install dapps pdn-soundmodem pdn-lin axcall axinetd axlisten axsocks axtun packetnet pdn-bbs pdn-bpqchat pdn-convers pdn-libax25 pdn-net pdn-qso tait-codeplug tait-cli nprflash
 ```
 
 ## How it works
