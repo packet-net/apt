@@ -20,6 +20,7 @@ packet-net/pdn-ax25-tools
 packet-net/dapps
 packet-net/packet.net
 packet-net/pdn-bbs
+packet-net/linmail-pdn
 packet-net/pdn-bpqchat
 packet-net/pdn-convers
 packet-net/pdn-libax25
