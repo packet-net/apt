@@ -8,7 +8,7 @@ Currently tracks the latest release of:
 
 - [pdn-soundmodem](https://github.com/packet-net/pdn-soundmodem) - `pdn-soundmodem`
 - [pdn-win](https://github.com/packet-net/pdn-win) - `pdn-lin` (pdn-win for Linux; `amd64` and `arm64`)
-- [axcall](https://github.com/packet-net/axcall) - `axcall`, `axinetd`, `axlisten`, `axsocks`, `axtun`
+- [pdn-ax25-tools](https://github.com/packet-net/pdn-ax25-tools) - `axcall`, `axinetd`, `axlisten`, `axsocks`, `axtun`
 - [dapps](https://github.com/packet-net/dapps) - `dapps`
 - [packet.net](https://github.com/packet-net/packet.net) - `packetnet`
 - [pdn-bbs](https://github.com/packet-net/pdn-bbs) - `pdn-bbs`

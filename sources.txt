@@ -16,7 +16,7 @@
 
 packet-net/pdn-soundmodem
 packet-net/pdn-win
-packet-net/axcall
+packet-net/pdn-ax25-tools
 packet-net/dapps
 packet-net/packet.net
 packet-net/pdn-bbs
