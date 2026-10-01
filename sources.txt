@@ -26,6 +26,7 @@ packet-net/pdn-convers
 packet-net/pdn-libax25
 packet-net/pdn-net
 packet-net/pdn-qso
+packet-net/packet-term-tui
 m0lte/tait-codeplug
 m0lte/tait-cli
 m0lte/nprflash

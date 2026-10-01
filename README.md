@@ -18,6 +18,7 @@ Currently tracks the latest release of:
 - [pdn-libax25](https://github.com/packet-net/pdn-libax25) - `pdn-libax25`
 - [pdn-net](https://github.com/packet-net/pdn-net) - `pdn-net`
 - [pdn-qso](https://github.com/packet-net/pdn-qso) - `pdn-qso`
+- [packet-term-tui](https://github.com/packet-net/packet-term-tui) - `packet-term`
 - [tait-codeplug](https://github.com/M0LTE/tait-codeplug) - `tait-codeplug`
 - [tait-cli](https://github.com/M0LTE/tait-cli) - `tait-cli`
 - [nprflash](https://github.com/M0LTE/nprflash) - `nprflash` (`Architecture: all`)
@@ -32,7 +33,7 @@ The list lives in [`sources.txt`](sources.txt), one `owner/repo` per line.
 curl -fsSL https://packet-net.github.io/apt/pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/packet-net.gpg
 echo "deb [signed-by=/usr/share/keyrings/packet-net.gpg] https://packet-net.github.io/apt ./" | sudo tee /etc/apt/sources.list.d/packet-net.list
 sudo apt update
-sudo apt install dapps pdn-soundmodem pdn-lin axcall axinetd axlisten axsocks axtun packetnet pdn-bbs pdn-linmail pdn-bpqchat pdn-convers pdn-libax25 pdn-net pdn-qso tait-codeplug tait-cli nprflash
+sudo apt install dapps pdn-soundmodem pdn-lin axcall axinetd axlisten axsocks axtun packetnet pdn-bbs pdn-linmail pdn-bpqchat pdn-convers pdn-libax25 pdn-net pdn-qso packet-term tait-codeplug tait-cli nprflash
 ```
 
 ## How it works
