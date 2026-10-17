@@ -1,0 +1,26 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: packet-net
+Label: packet-net
+Suite: stable
+Codename: flat
+Date: Sat, 17 Oct 2026 18:52:14 +0000
+Architectures: all amd64 arm64 armhf
+Description: Public apt repository for packet-net packages (dapps, pdn-soundmodem, pdn-lin, axcall, axinetd, axlisten, axsocks, axtun, packetnet, pdn-bbs, pdn-bpqchat, pdn-convers, pdn-libax25, pdn-net, pdn-qso, tait-codeplug, tait-cli, nprflash)
+MD5Sum:
+ f467b6c8ad47d20994cee8e1cc275ac6            74708 Packages
+ b4f2548015d2e7c0f4461b305f930bdb            14535 Packages.gz
+SHA1:
+ 7ff196e04a0b21192c5ae982878c3d2073278fbb            74708 Packages
+ 22ba53fec7a523b1fd33ace9e0780790dec0e6b6            14535 Packages.gz
+SHA256:
+ a251c60ecbe11d9eddc503ebf52d1cdcc2045dbe81fed7bcaedd6727c49dc976            74708 Packages
+ fd99731ceaa8eef7d9fbe8e3f7d63caddf9a17bfcd441ce939090e18d471a8b4            14535 Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQT6bT9fzkfom9hKZ+SS7PBaZmwjnwUCatPD3gAKCRCS7PBaZmwj
+n6UUAP4+tXkoaCLcgeGjmIwo54C/bDHibL9g9/95Ut99B5lZKQD/UDhZ6pqaLUV6
+GVsK2lOeqWy5tanxhlYfSZB8Qg5WIQY=
+=cktC
+-----END PGP SIGNATURE-----
