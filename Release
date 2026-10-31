@@ -1,0 +1,16 @@
+Origin: packet-net
+Label: packet-net
+Suite: stable
+Codename: flat
+Date: Sat, 31 Oct 2026 18:03:42 +0000
+Architectures: all amd64 arm64 armhf
+Description: Public apt repository for packet-net packages (dapps, pdn-soundmodem, pdn-lin, axcall, axinetd, axlisten, axsocks, axtun, packetnet, pdn-bbs, pdn-bpqchat, pdn-convers, pdn-libax25, pdn-net, pdn-qso, tait-codeplug, tait-cli, nprflash)
+MD5Sum:
+ f53e572aae671a12ff173c380987926c            74648 Packages
+ a108da9c350a4c1cdddf6802ed043ed9            14538 Packages.gz
+SHA1:
+ cc06dada5aad15fb66cf8bd8aa824d6df2e81b4b            74648 Packages
+ 2f21f0cc4b5fabf9e65e91828ee16f8104292b6f            14538 Packages.gz
+SHA256:
+ 3e4497b246fff7bdc256125497b845b63571c27b3035a6090ea26f562c50a54e            74648 Packages
+ d9e09c672a379b01f4bc96e1f2197977249e777d12775935b4f86cbf226c382f            14538 Packages.gz
