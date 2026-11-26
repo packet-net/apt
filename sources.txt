@@ -32,3 +32,4 @@ m0lte/tait-codeplug
 m0lte/tait-cli
 m0lte/nprflash
 M0LTE/M0LTE.S5066
+M0LTE/meshkeep
